@@ -35,9 +35,13 @@ const Sidebar = () => {
                         <i className="fas text-xl fa-chart-pie"></i>
                         <h1 className="ml-4">Stats</h1>
                     </div>
-                    <div className={`p-4 rounded-2xl flex items-center cursor-pointer ${route === '/app/add' ? "bg-black text-white font-bold" : ""} `}>
+                    <div className={`p-4 rounded-2xl flex items-center cursor-pointer ${route === '/app/add-transaction' ? "bg-black text-white font-bold" : ""} `}>
                         <i className="far text-xl fa-plus-square"></i>
-                        <h1 className="ml-4">Add</h1>
+                        <h1 className="ml-4">Add Transaction</h1>
+                    </div>
+                    <div className={`p-4 rounded-2xl flex items-center cursor-pointer ${route === '/app/add-budget' ? "bg-black text-white font-bold" : ""} `}>
+                        <i className="far text-xl fa-plus-square"></i>
+                        <h1 className="ml-4">Add Budget</h1>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,8 @@ import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Stat from '../../components/Card/Stat'
+import Balance from '../../components/Card/Balance'
+import Transaction from '../../components/Card/Transaction'
 
 const Dashboard = () => {
     return (
@@ -13,17 +15,69 @@ const Dashboard = () => {
             </Head>
 
             <main className="h-full w-full p-4 flex">
+
                 <div className="w-9/12 p-4">
-                    <div>
-                        <h1 className="font-bold text-2xl">Dashboard</h1>
-                        <p className="text-gray-400 text-base">Hello Mukul, Welcome to expenser</p>
+                    <div className="flex justify-between items-center">
+                        <div>
+                            <h1 className="font-bold text-2xl">Dashboard</h1>
+                            <p className="text-gray-400 text-base">Hello Mukul, Welcome to expenser</p>
+                        </div>
+
                     </div>
+                    <div className="mt-4">
+                        <div className="flex px-4 justify-between items-center">
+                            <h1 className="font-bold">This Month</h1>
+                            <i className="fas fa-chart-pie text-xl cursor-pointer"></i>
+                        </div>
+                        <div className="flex">
+                            <Stat title="Spend" value="2324" />
+                            <Stat title="Income" value="43534" />
+                        </div>
+                    </div>
+
                     <div className="flex">
-                        <Stat title="Spend" value="2324" />
-                        <Stat title="Income" value="43534" />
+
+                        <div className="mt-4 w-1/2 pr-4">
+                            <div className="flex px-4 justify-between items-center">
+                                <h1 className="font-bold">Monthy Budget</h1>
+                                <h1 className="hover:underline cursor-pointer text-xs">Add Budget</h1>
+                            </div>
+                            <div className="w-full min-w-60 bg-gray-100 p-8 mx-2 my-4 rounded-2xl shadow-sm">
+                                <h1 className="font-bold">Budget Left</h1>
+                                <h1 className="font-bold text-4xl my-3">$1500</h1>
+                                <div className="flex justify-between">
+                                    <h1 className="font-bold text-xs">0.0</h1>
+                                    <h1 className="font-bold text-xs">1500.0</h1>
+                                </div>
+                                <progress className={`progress progress-success`} value="449" max="1500"></progress>
+                                <h1 className="text-gray-400 text-xs mt-3">
+                                    <span className="font-bold"><i className="far fa-lightbulb"></i> &nbsp;Pro Tip: </span>
+                                    Set category-wise budget to see analysis.
+                                </h1>
+                            </div>
+                        </div>
+
+                        <div className="mt-4 w-1/2 pr-4">
+                            <div className="flex px-4 justify-between items-center">
+                                <h1 className="font-bold">Recent Transaction</h1>
+                                <h1 className="hover:underline cursor-pointer text-xs">See All</h1>
+                            </div>
+                            <div className="w-full min-w-60 mx-2 my-4 rounded-2xl shadow-sm overflow-auto h-96 p-1">
+                                <Transaction />
+                                <Transaction type="income" />
+                                <Transaction type="income" />
+                                <Transaction />
+                                <Transaction />
+                                <Transaction type="income" />
+                                <Transaction type="income" />
+                                <Transaction type="income" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div className="w-3/12">
+
+                <div className="w-3/12 py-4">
 
                     <div className="bg-gray-100 rounded-2xl flex justify-center items-center flex-col p-8 mb-4">
                         <div className="border-2 border-dashed border-blue-400 rounded-full p-2 mb-4">
@@ -35,6 +89,11 @@ const Dashboard = () => {
                             <i className="fas fa-bell p-2 mx-2 text-white bg-blue-400 rounded-full"></i>
                             <i className="fas fa-cog p-2 mx-2 text-white bg-blue-400 rounded-full"></i>
                         </div>
+                    </div>
+
+                    <div className="bg-gray-100 rounded-2xl flex justify-center items-center flex-col p-8 mb-4">
+                        <h1 className="self-start font-bold mb-3">Balance</h1>
+                        <Balance />
                     </div>
 
                     <div className="bg-gray-100 rounded-2xl flex justify-center items-center p-8">
